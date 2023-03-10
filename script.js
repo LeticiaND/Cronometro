@@ -1,33 +1,41 @@
-const milesemos = document.querySelector("#tens")
-const segundos = document.querySelector("#seconds")
-const botaoStart = document.querySelector("#start")
-const stop = document.querySelector("#stop")
-const reset = document.querySelector("#reset")
+window.onload = function (){
+// criando as variaveis responsaveis pelos 00:00
 
-botaoStart.addEventListener("click", ()=> {
-    start() // chamando a funcao 
-    milliseconds()
-})
-
-function start() {
-    let date = new Date() // criando a class date que sera respondavel pelos metodos de horarios
-    let sec = date.getSeconds() 
-    segundos.innerHTML = sec // chamando segundos pois é a posicao onde queremos que funcione, inerhtm para inserir um elemento html ja existente em um documento js
-
-    var timer = setInterval(start,1000);
+    let seconds = 00
+    let tens = 00
+//
+    const milesemos = document.querySelector("#tens")
+    const segundos = document.querySelector("#seconds")
+    const botaoStart = document.querySelector("#start")
+    const botaoStop = document.querySelector("#stop")
+    const botaoReset = document.querySelector("#reset")
  
-}
+// criando a variavel responsavel que guarda o valor do stop
 
-function milliseconds(){
-    let date = new Date()
+    let Interval
+//
 
-    let mile = date.getMilliseconds()
-    tens.innerHTML = mile
-
-    if(mile < 10){
-        tens.innerHTML = "0" + mile
-    }else{
-        tens.innerHTML = mile
+    // criando as funcoes de cada botao
+    botaoStart.onclick = function(){
+        clearInterval(Interval)
+        Interval = setInterval(startTimer, 10)
     }
-    var timerr = setInterval(milliseconds,10)
-}
+
+    botaoStop.onclick = function(){
+        clearInterval(Interval)
+    }
+
+    botaoReset.onclick = function(){
+        clearInterval(Interval)
+        tens = "00"
+        seconds = "00"
+        milesemos.innerHTML = tens
+        segundos.innerHTML = seconds
+    }
+    // 
+
+
+    function start(){
+        
+    }
+    }
