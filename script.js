@@ -27,7 +27,7 @@ window.onload = function (){
         milesemos.innerHTML = tens
         segundos.innerHTML = seconds
     }
-    // 
+    
     function startTimer(){
         tens++
 
